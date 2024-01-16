@@ -1,7 +1,8 @@
 describe('webdriverunivercity - contact us page', () => {
-    before(async() => {
+    beforeEach(async() => {
         await browser.maximizeWindow();
         await browser.url('/Contact-Us/contactus.html');
+        console.log(`Browser Object: + ${JSON.stringify(browser)}`);
     });
 
     it('valid submittion - submit all information', async() => {
@@ -33,7 +34,7 @@ describe('webdriverunivercity - contact us page', () => {
         await message.setValue('How are you?');
         await submitButton.click();
 
-        const successfulSubmissionHeader = $('//body');
+        const successfulSubmissionHeader = $('body');
         console.log(successfulSubmissionHeader);
         await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required'],['Error: Invalid email address']);
     });

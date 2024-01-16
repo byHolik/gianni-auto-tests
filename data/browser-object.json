@@ -1,0 +1,33 @@
+{
+    "sessionId": "e8a59d0ad8646d2bcac1714e215e3aee",
+    "capabilities": {
+        "acceptInsecureCerts": false,
+        "browserName": "chrome",
+        "browserVersion": "120.0.6099.217",
+        "chrome": {
+            "chromedriverVersion": "120.0.6099.109 (3419140ab665596f21b385ce136419fde0924272-refs/branch-heads/6099@{#1483})",
+            "userDataDir": "C:\\Users\\Vova\\AppData\\Local\\Temp\\scoped_dir31616_1509045689"
+        },
+        "fedcm:accounts": true,
+        "goog:chromeOptions": {
+            "debuggerAddress": "localhost:50109"
+        },
+        "networkConnectionEnabled": false,
+        "pageLoadStrategy": "normal",
+        "platformName": "windows",
+        "proxy": {},
+        "setWindowRect": true,
+        "strictFileInteractability": false,
+        "timeouts": {
+            "implicit": 0,
+            "pageLoad": 300000,
+            "script": 30000
+        },
+        "unhandledPromptBehavior": "dismiss and notify",
+        "webauthn:extension:credBlob": true,
+        "webauthn:extension:largeBlob": true,
+        "webauthn:extension:minPinLength": true,
+        "webauthn:extension:prf": true,
+        "webauthn:virtualAuthenticators": true
+    }
+}
