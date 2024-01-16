@@ -1,10 +1,10 @@
 describe('webdriverunivercity - contact us page', () => {
     before(async() => {
         await browser.maximizeWindow();
+        await browser.url('/Contact-Us/contactus.html');
     });
 
     it('valid submittion - submit all information', async() => {
-        await browser.url('/Contact-Us/contactus.html');
         const firstName = await $('//*[@name="first_name"]');
         const lastName = await $('//*[@name="last_name"]');
         const emailAddress = await $('//*[@name="email"]');
@@ -23,7 +23,6 @@ describe('webdriverunivercity - contact us page', () => {
     });
 
     it('invalid submittion - dont submit all information', async() => {
-        await browser.url('/Contact-Us/contactus.html');
         const firstName = await $('//*[@name="first_name"]');
         const lastName = await $('//*[@name="last_name"]');
         const message = await $('//textarea[@name="message"]');
