@@ -36,6 +36,7 @@ describe('webdriverunivercity - contact us page', () => {
 
         const successfulSubmissionHeader = $('body');
         console.log(successfulSubmissionHeader);
-        await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required'],['Error: Invalid email address']);
+        await expect(successfulSubmissionHeader).toHaveText(expect.stringContaining('Error: all fields are required','Error: Invalid email address'));
+        //await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required'],['Error: Invalid email address']);
     });
 });
