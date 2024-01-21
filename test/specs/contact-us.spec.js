@@ -5,7 +5,7 @@ describe('webdriverunivercity - contact us page', () => {
         console.log(`Browser Object: + ${JSON.stringify(browser)}`);
     });
 
-    it('valid submittion - submit all information', async() => {
+    it.only('valid submittion - submit all information', async() => {
         const firstName = await $('//*[@name="first_name"]');
         const lastName = await $('//*[@name="last_name"]');
         const emailAddress = await $('//*[@name="email"]');
@@ -21,6 +21,9 @@ describe('webdriverunivercity - contact us page', () => {
 
         const successfulSubmissionHeader = $('#contact_reply > h1');
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');
+    
+        const successfulSubmissionHeader2 = await $('#contact_reply > h1').getText();
+        await expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!');
     });
 
     it('invalid submittion - dont submit all information', async() => {
