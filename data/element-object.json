@@ -1,0 +1,41 @@
+{
+    "sessionId": "f48a0967e72751a8435db717f5d29e6d",
+    "elementId": "5FC138F8FABBC320C4C11012BFCBF350_element_16",
+    "element-6066-11e4-a52e-4f735466cecf": "5FC138F8FABBC320C4C11012BFCBF350_element_16",
+    "selector": "#contact_reply > h1",
+    "parent": {
+        "sessionId": "f48a0967e72751a8435db717f5d29e6d",
+        "capabilities": {
+            "acceptInsecureCerts": false,
+            "browserName": "chrome",
+            "browserVersion": "120.0.6099.225",
+            "chrome": {
+                "chromedriverVersion": "120.0.6099.109 (3419140ab665596f21b385ce136419fde0924272-refs/branch-heads/6099@{#1483})",
+                "userDataDir": "C:\\Users\\ULADZI~1.HOL\\AppData\\Local\\Temp\\scoped_dir15776_428181952"
+            },
+            "fedcm:accounts": true,
+            "goog:chromeOptions": {
+                "debuggerAddress": "localhost:60295"
+            },
+            "networkConnectionEnabled": false,
+            "pageLoadStrategy": "normal",
+            "platformName": "windows",
+            "proxy": {},
+            "setWindowRect": true,
+            "strictFileInteractability": false,
+            "timeouts": {
+                "implicit": 0,
+                "pageLoad": 300000,
+                "script": 30000
+            },
+            "unhandledPromptBehavior": "dismiss and notify",
+            "webauthn:extension:credBlob": true,
+            "webauthn:extension:largeBlob": true,
+            "webauthn:extension:minPinLength": true,
+            "webauthn:extension:prf": true,
+            "webauthn:virtualAuthenticators": true
+        }
+    },
+    "isReactElement": false,
+    "isShadowElement": false
+}

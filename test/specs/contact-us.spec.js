@@ -20,10 +20,12 @@ describe('webdriverunivercity - contact us page', () => {
 
 
         const successfulSubmissionHeader = $('#contact_reply > h1');
+        console.log(`successfulSubmissionHeader element: ` + JSON.stringify(await successfulSubmissionHeader));
         await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');
     
-        const successfulSubmissionHeader2 = await $('#contact_reply > h1').getText();
-        await expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!');
+        //Jest assertion:
+        // const successfulSubmissionHeader2 = await $('#contact_reply > h1').getText();
+        // await expect(successfulSubmissionHeader2).toEqual('Thank You for your Message!');
     });
 
     it('invalid submittion - dont submit all information', async() => {
