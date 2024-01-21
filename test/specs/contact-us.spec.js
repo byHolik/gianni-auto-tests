@@ -16,6 +16,8 @@ describe('webdriverunivercity - contact us page', () => {
         await lastName.setValue('Blogs');
         await emailAddress.setValue('mail@mail.com');
         await message.setValue('How are you?');
+
+        await browser.debug();
         await submitButton.click();
 
 
