@@ -15,4 +15,25 @@ beforeEach(async () => {
         //await browser.pause(2000);
         
     });
+
+    it('dropdowns', async () => {
+        await browser.url('/Dropdown-Checkboxes-RadioButtons/index.html');
+
+        const programmingLanguage = 'python';
+        const programmingLanguage_DropDownList = await $('#dropdowm-menu-1');
+        await programmingLanguage_DropDownList.selectByAttribute('value', programmingLanguage);
+        await expect(programmingLanguage_DropDownList).toHaveValue(programmingLanguage);
+        await browser.pause(1500);
+
+        const tech_DropDownList = await $('#dropdowm-menu-2');
+        await tech_DropDownList.selectByIndex(3);
+        await expect(tech_DropDownList).toHaveValueContaining('JUnit', {ignoreCase: true});
+        //await expect(tech_DropDownList).toHaveValue(expect.stringContaining('junit'));
+        await browser.pause(1500);
+
+        const frontendLanguage_DropDownList = await $('#dropdowm-menu-3');
+        await frontendLanguage_DropDownList .selectByVisibleText('CSS');
+        await expect(frontendLanguage_DropDownList ).toHaveValueContaining('CSS', {ignoreCase: true});
+        await browser.pause(1500);
+    });
 });
