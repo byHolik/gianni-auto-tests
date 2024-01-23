@@ -55,7 +55,7 @@ beforeEach(async () => {
         await expect(cabbageRadioButton).not.toBeEnabled();
     });
 
-    it.only('actions', async () => {
+    it('actions', async () => {
         await browser.url('/Actions/index.html');
 
         const elem = await $('#draggable');
@@ -73,5 +73,44 @@ beforeEach(async () => {
         await firstLink.isClickable();
         await firstLink.click();
         await browser.pause(3000);
+    });
+
+    it('handling window', async () => {
+        await browser.url('https://www.webdriveruniversity.com/');
+        await browser.newWindow('https://www.automationteststore.com/');
+        
+        let currentWindow_Title = await browser.getTitle();
+        console.log(`>>Current Window Title: ${currentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('automationteststore');
+        await browser.pause(1000);
+
+        await browser.switchWindow('webdriveruniversity.com');
+        let parentWindow_Title = await browser.getTitle();
+        console.log(`>>Current Window Title: ${parentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('webdriveruniversity');
+        await browser.pause(1000);
+
+        await $('#contact-us').click();
+        await browser.switchWindow('automationteststore');
+        await browser.closeWindow();
+        //await browser.pause(3000);
+
+        await browser.switchWindow('contactus');
+        await browser.closeWindow();
+
+        await browser.switchWindow('webdriveruniversity');
+        console.log(`>>Current Window Title: ${await browser.getTitle()}`);
+        await browser.pause(3000);
+    });
+
+    it('IFrame', async () => {
+        await browser.url('/IFrame/index.html');
+
+        const iFrame = await $('#frame');
+        await browser.switchToFrame(iFrame);
+        await $('//*[text()="Our Products"]').click();
+        await browser.switchToParentFrame();
+        await browser.pause(3000);
+        
     });
 });
