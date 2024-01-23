@@ -1,4 +1,7 @@
+const debug = process.env.DEBUG
+
 exports.config = {
+    execArgv: debug ? ['--inspect'] : [],
     //
     // ====================
     // Runner Configuration

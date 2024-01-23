@@ -36,4 +36,42 @@ beforeEach(async () => {
         await expect(frontendLanguage_DropDownList ).toHaveValueContaining('CSS', {ignoreCase: true});
         await browser.pause(1500);
     });
+
+    it('stait commands', async () => {
+        await browser.url('/Dropdown-Checkboxes-RadioButtons/index.html');
+
+        const lattuceRadioButton = await $('[value="lettuce"]');
+        const lattuceRadioButton_isDisplayed = await lattuceRadioButton.isDisplayed();
+        await expect(lattuceRadioButton_isDisplayed).toEqual(true);
+        await expect(lattuceRadioButton).toBeEnabled();
+
+        const lattuceRadioButton_isDClickable = await lattuceRadioButton.isClickable();
+        await expect(lattuceRadioButton_isDClickable).toEqual(true);
+
+        const cabbageRadioButton = await $('[value="cabbage"]');
+        const cabbageRadioButton_isEnabled= await cabbageRadioButton.isEnabled();
+        await expect(cabbageRadioButton_isEnabled).toEqual(false);
+        await expect(cabbageRadioButton).toBeDisabled();
+        await expect(cabbageRadioButton).not.toBeEnabled();
+    });
+
+    it.only('actions', async () => {
+        await browser.url('/Actions/index.html');
+
+        const elem = await $('#draggable');
+        const target = await $('#droppable');
+        await elem.dragAndDrop(target);
+        await browser.pause(3000);
+
+        const doubleClick_Button = await $('#double-click');
+        await doubleClick_Button.doubleClick();
+        await browser.pause(3000);
+
+        const firstList_Locator = "//*[text()='Hover Over Me First!']";
+        await $(firstList_Locator).moveTo();
+        const firstLink = await $(firstList_Locator + "/..//*[text() = 'Link 1']");
+        await firstLink.isClickable();
+        await firstLink.click();
+        await browser.pause(3000);
+    });
 });
