@@ -111,6 +111,35 @@ beforeEach(async () => {
         await $('//*[text()="Our Products"]').click();
         await browser.switchToParentFrame();
         await browser.pause(3000);
-        
+    });
+
+    it('alerts', async () => {
+        await browser.url('/Popup-Alerts/index.html');
+
+        await $('#button1').click();
+        await browser.acceptAlert();
+        await browser.pause(3000);
+
+        const buton4 = await $('#button4')
+        await buton4.click();
+        const alertText = await browser.getAlertText();
+        await expect(alertText).toEqual('Press a button!');
+
+        await browser.acceptAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed OK!');
+        await browser.pause(3000);
+
+        await buton4.dismissAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed Cancel!');
+    });
+
+    it('file upload', async () => {    
+        await browser.url('/File-Upload/index.html');
+        await $('#myFile').addValue(`${process.cwd()}\\data\\dummy_file.txt`);
+        await browser.pause(2000);
+        await $('#submit-button').click();
+        await browser.pause(2000);
+        await expect(await browser.getAlertText()).toEqual('Your file has now been uploaded!');
+        await browser.acceptAlert();
     });
 });
